@@ -36,10 +36,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "Poppins",
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: "400",
-    lineHeight: 19.5,
-    letterSpacing: 1,
+    lineHeight: 12,
+    letterSpacing: .5,
     textAlign: "center",
   },
 });

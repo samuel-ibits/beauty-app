@@ -2,11 +2,11 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-const PaginationDots = ({ activeIndex }) => {
+const PaginationDots = ({ activeIndex, totalImages }) => {
   const renderDots = () => {
     const dots = [];
 
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= totalImages; i++) {
       dots.push(<Dot key={i} isActive={i === activeIndex} />);
     }
 
@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   dot: {
-    backgroundColor: "#FFF",
+    backgroundColor: "#F7CCC4",
     width: 6,
     height: 6,
     borderRadius: 3,
     marginHorizontal: 5,
   },
   activeDot: {
-    width: 15,
+    width: 27,
     height: 6,
     borderRadius: 6,
   },

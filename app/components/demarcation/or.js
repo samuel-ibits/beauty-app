@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { View, Text, StyleSheet } from 'react-native';
 import * as Font from "expo-font";
-
-const CustomText = ({ text }) => {
-  const [isFontLoaded, setIsFontLoaded] = useState(false);
+const OrDemarcation = () => {
+    const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
     const loadFont = async () => {
@@ -22,29 +21,32 @@ const CustomText = ({ text }) => {
   if (!isFontLoaded) {
     return null; // Render nothing until the font is loaded
   }
-
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+      <View style={styles.line}></View>
+      <Text style={styles.orText}>or</Text>
+      <View style={styles.line}></View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "center",
-    width:'90%'
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 20,
   },
-  text: {
-    fontFamily: "Poppins", // Use the same name used in Font.loadAsync
-    fontSize: 13,
-    fontWeight: "700",
-    lineHeight: 24,
-    letterSpacing: .2,
-    textAlign: "left",
-    color: "rgba(50, 50, 50, 0.8)",
-    width:'100%',
+  line: {
+    width:57,
+    height: 1,
+    backgroundColor: '#050505',
+  },
+  orText: {
+    marginHorizontal: 10,
+    color: '#050505',
+    fontFamily: "Poppins",
+    fontWeight:'400'
   },
 });
 
-export default CustomText;
+export default OrDemarcation;

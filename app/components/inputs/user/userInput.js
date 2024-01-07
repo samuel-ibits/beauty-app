@@ -16,7 +16,7 @@ const InputField = ({title, placeholder}) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%', 
+    width: '100%', 
     height: 65,
     padding: 14,
     paddingHorizontal: 16,
