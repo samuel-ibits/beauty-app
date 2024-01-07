@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Font from "expo-font";
 
-const CustomButton = ({ text, onPress }) => {
+const Termsandcondition = ({ onPress }) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -24,48 +24,38 @@ const CustomButton = ({ text, onPress }) => {
     return null; // Render nothing until the font is loaded
   }
   return (
-    <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
-      <LinearGradient
-        colors={[
-          "rgba(186, 130, 119, 0.3)",
-          "rgba(242, 184, 173, 0.3)",
-          "rgba(252, 223, 217, 0.3)",
-          "rgba(247, 204, 196, 0.3)",
-          "rgba(255, 255, 255, 0.3)",
-        ]}
-        style={styles.buttonGradient}
-      >
-        <Text style={styles.buttonText}>{text}</Text>
-      </LinearGradient>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
+      <Text style={styles.text}>By verifying you agree to </Text>
+      <Text style={styles.signupText}>Terms & condition of Glamhub</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    width: "100%",
-    height: 52,
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: "#FFFFFF",
-  },
-  buttonGradient: {
-    flex: 1,
-    borderRadius: 12,
-    width: "100%",
-    height: "100%",
+  container: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    gap: 1,
+    // bottom: 30,
+    // position: "absolute",
   },
-  buttonText: {
-    color: "#FFFFFF",
-    textAlign: "center",
-    fontWeight: "400",
-    fontSize: 13,
-    lineHeight: 19.5,
+  text: {
     fontFamily: "Poppins",
+    fontSize: 11,
+    fontWeight: "300",
+    lineHeight: 20,
+    textAlign: "center",
+    color: "#000000",
+  },
+  signupText: {
+    fontFamily: "Poppins-Bold",
+    fontSize: 11,
+    fontWeight: "600",
+    lineHeight: 20,
+    textAlign: "center",
+    color: "#000000", // You can replace this with the linear gradient style if needed
   },
 });
 
-export default CustomButton;
+export default Termsandcondition;

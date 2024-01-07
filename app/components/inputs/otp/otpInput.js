@@ -33,7 +33,6 @@ const OTPInput = () => {
       flexDirection: 'row',
       justifyContent: 'space-between',
       width:'100%',
-      paddingHorizontal:10
     },
     otpBox: {
       width: 77,

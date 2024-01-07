@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import * as Font from "expo-font";
 
-const CustomText = ({ text }) => {
+const CustomText = ({ text, color }) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const CustomText = ({ text }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+      <Text  style={[styles.text, { color: color || "#FFFFFF" }]}>{text}</Text>
     </View>
   );
 };
@@ -36,12 +36,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: "Poppins", // Use the same name used in Font.loadAsync
-    fontSize: 24,
+    fontSize: 27,
     fontWeight: "700",
-    lineHeight: 36,
-    letterSpacing: .5,
+    lineHeight: 28,
+    letterSpacing: 1,
     textAlign: "center",
-    color: "#FFFFFF",
   },
 });
 
