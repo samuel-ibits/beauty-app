@@ -7,7 +7,7 @@ import Header from "./components/headers/profileHeader";
 import Chat from "./components/chat/chat";
 import UserProfileCard from "./components/user/dpAndName";
 import SubProfile from "./components/subProfile/subProfile";
-import NotificationPopUp from "./components/notificationPopUp/notificationPopUp";
+import NotificationPopUp from "./components/notificationPopUp.js/notificationPopUp";
 
 const CustomText = ({ text, color }) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
