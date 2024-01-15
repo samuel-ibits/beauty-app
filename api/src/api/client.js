@@ -3,7 +3,9 @@ import { PublishMessage, SubscribeMessage } from "../utils/index.js";
 import { configs } from "../config/index.js";
 const { NOTIFICATION_SERVICE, FAULT_SERVICE } = configs;
 
-export const client = (app, channel) => {
+
+
+export const client = (app) => {
   const service = new ClientService();
 
   // listen to events from other services

@@ -2,8 +2,7 @@ import express from "express";
 import { expressApp } from "./express-app.js";
 import { connect_db } from "./src/dba/connection.js";
 import dotenv from "dotenv";
-import { CreateChannel } from "./src/utils/index.js";
-// const { PORT } = import "./config.js
+
 dotenv.config();
 
 const StartServer = async () => {
@@ -12,9 +11,8 @@ const StartServer = async () => {
 
   await connect_db();
 
-  const channel = "";
 
-  await expressApp(app, channel);
+  await expressApp(app);
 
   app
     .listen(PORT, () => {
