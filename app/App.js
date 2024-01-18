@@ -25,7 +25,8 @@ import ButtonComponent from "./components/buttons/buttonTwo";
 import About from "./components/subProfile/about";
 import Portfolio from "./components/subProfile/portfolio";
 import CardAppointment from "./components/appointments/appointmentCard";
-import Preference from "./components/notification/emailNotification";
+import Preference from "./components/accounts/accounts";
+import Popup from './components/popups/popuppay1';
 
 const App = () => {
   const data = [
@@ -59,8 +60,8 @@ const App = () => {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <Header title={'Email Notifications'} />
-      <Preference />
+      {/* <Header title={'Account'} /> */}
+      <Popup />
     </View>
   );
 };
