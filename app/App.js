@@ -1,15 +1,41 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  StatusBar,
+  ScrollView,
+  FlatList,
+} from "react-native";
 import * as Font from "expo-font";
 import Slider from "./components/slider/mainSlider/slider";
 import Card from "./components/cards/chat/chatListCard";
-import Header from "./components/headers/profileHeader";
+import Header from "./components/headers/preferenceHeader";
 import Chat from "./components/chat/chat";
 import UserProfileCard from "./components/user/dpAndName";
 import SubProfile from "./components/subProfile/subProfile";
-import NotificationPopUp from "./components/notificationPopUp.js/notificationPopUp";
+import NotificationPopUp from "./components/notificationPopUp/notificationPopUp";
+import Username from "./components/user/profileNameandusername";
+import ActiveAbout from "./components/subProfile/activeAbout";
+import Unavailable from "./components/subProfile/unavailable";
+import UserInfo from "./components/subProfile/userInfo";
+import SubProfileList from "./components/subProfile/profileFlatList";
+import LanguageComponent from "./components/subProfile/LanguageComponent";
+import ButtonComponent from "./components/buttons/buttonTwo";
+import About from "./components/subProfile/about";
+import Portfolio from "./components/subProfile/portfolio";
+import CardAppointment from "./components/appointments/appointmentCard";
+import Preference from "./components/notification/emailNotification";
 
-const CustomText = ({ text, color }) => {
+const App = () => {
+  const data = [
+    { id: "1", component: <Unavailable /> },
+    { id: "2", component: <UserInfo /> },
+    { id: "3", component: <SubProfileList /> },
+    { id: "4", component: <LanguageComponent /> },
+    // Add more components as needed
+  ];
+
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -33,13 +59,8 @@ const CustomText = ({ text, color }) => {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <Header />
-      <UserProfileCard
-        username="Kathryn Murphy"
-        profilePhotoUrl="https://randomuser.me/api/portraits/women/68.jpg"
-      />
-      <SubProfile />
-      <NotificationPopUp />
+      <Header title={'Email Notifications'} />
+      <Preference />
     </View>
   );
 };
@@ -47,18 +68,10 @@ const CustomText = ({ text, color }) => {
 const styles = StyleSheet.create({
   container: {
     // justifyContent: "center",
-    // alignItems: "center",
+    alignItems: "center",
     flex: 1,
     backgroundColor: "white",
   },
-  text: {
-    fontFamily: "Poppins", // Use the same name used in Font.loadAsync
-    fontSize: 21,
-    fontWeight: "200",
-    lineHeight: 28,
-    letterSpacing: 1,
-    textAlign: "center",
-  },
 });
 
-export default CustomText;
+export default App;
