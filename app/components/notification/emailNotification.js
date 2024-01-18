@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
 
-const PreferenceList = () => {
+const EmailList = () => {
   const data = [
     { key: "1", title: "Inbox messages" },
     { key: "2", title: "Appointment messages" },
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PreferenceList;
+export default EmailList;
