@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
-import { View, Image, StyleSheet, FlatList, Dimensions, StatusBar } from "react-native";
+import { View, Image, StyleSheet, FlatList, Dimensions,StatusBar } from "react-native";
 import PaginationDots from "../../pagination/dotSlider";
-
+const { width } = Dimensions.get("window");
 
 const Slider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -54,16 +54,14 @@ const Slider = () => {
 
 const styles = StyleSheet.create({
   container: {
-
     width: '100%',
     height: 194,
     borderRadius: 10,
-    overflow: "hidden",
-    gap:10
-
+    gap:10,
+    marginBottom:40,
   },
   slide: {
-    width: Dimensions.get("window").width,
+    width: width * 0.95,
     height: "100%",
   },
   image: {

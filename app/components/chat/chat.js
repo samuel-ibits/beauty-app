@@ -8,8 +8,11 @@ import {
   KeyboardAvoidingView,
   StyleSheet,
   ScrollView,
+  Dimensions
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+
+const { width, height } = Dimensions.get("window");
 
 const ChatScreen = () => {
   return (
@@ -193,19 +196,7 @@ const ChatScreen = () => {
           </View>
         </ScrollView>
 
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          keyboardVerticalOffset={Platform.OS === "ios" ? 60 : 180}
-          style={styles.avoidingView}
-        >
-          <View style={styles.chatInput}>
-            <TextInput placeholder="Message..." style={styles.input} />
-
-            <TouchableOpacity>
-              <Ionicons name="send" size={18} color="#585858" />
-            </TouchableOpacity>
-          </View>
-        </KeyboardAvoidingView>
+      
       </View>
     </KeyboardAvoidingView>
   );
@@ -214,8 +205,8 @@ const ChatScreen = () => {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    height: "95%",
     padding: 10,
+    minHeight: height - 120
   },
   avoidingView: {
     width: "100%",
@@ -242,20 +233,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#eeeeee",
     marginRight: "auto",
   },
-  chatInput: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    padding: 5,
-  },
-  input: {
-    width: '85%',
-    padding: 5,
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    marginRight: 5,
-  },
+
 });
 
 export default ChatScreen;

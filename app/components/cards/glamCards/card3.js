@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity , Dimensions} from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import * as Font from "expo-font";
+const { width } = Dimensions.get("window");
 
-const Card = () => {
+
+
+const Card = ({image}) => {
   const [isHeartFilled, setIsHeartFilled] = React.useState(false);
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
@@ -28,17 +31,20 @@ const Card = () => {
   return (
     <View
       style={{
-        width: 178,
+        width: width * 0.46,
         height: 118,
         borderRadius: 43,
+        margin:4,
+        // marginBottom:40
       }}
     >
       <Image
-        source={require("../../../assets/makeup3.png")}
+        source={image}
         style={{
           width: '100%',
           height: 160,
-          borderRadius:8
+          borderRadius:8,
+          backgroundColor:'#eee'
         }}
       />
 

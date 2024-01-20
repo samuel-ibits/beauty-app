@@ -27,6 +27,8 @@ import Portfolio from "./components/subProfile/portfolio";
 import CardAppointment from "./components/appointments/appointmentCard";
 import Preference from "./components/accounts/accounts";
 import Popup from './components/popups/popuppay1';
+import StackNav from './navigation/stack/IntroStack';
+import Screen from './screens/Profile2'
 
 const App = () => {
   const data = [
@@ -61,15 +63,13 @@ const App = () => {
     <View style={styles.container}>
       <StatusBar />
       {/* <Header title={'Account'} /> */}
-      <Popup />
+      <Screen />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // justifyContent: "center",
-    alignItems: "center",
     flex: 1,
     backgroundColor: "white",
   },

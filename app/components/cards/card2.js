@@ -38,7 +38,7 @@ const Card = () => {
             color: "#000000",
           }}
         >
-          John
+          Brooklyn
         </Text>
       </View>
     </View>

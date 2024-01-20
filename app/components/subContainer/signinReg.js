@@ -49,7 +49,7 @@ const Signin = ({ onBackArrowPress }) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 650,
+    height: 630,
     bottom: 0,
     position: "absolute",
     borderTopLeftRadius: 20,
