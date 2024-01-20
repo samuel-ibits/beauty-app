@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity, FlatList, Dimensions } from "react-native";
+const { width } = Dimensions.get("window");
 
 const Portfolio = () => {
   const data = [
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "rgba(255, 255, 255, 0.02)",
     padding: 1,
+    alignItems:'center'
   },
   text: {
     color: "rgba(6, 6, 6, 0.63)",
@@ -61,13 +63,15 @@ const styles = StyleSheet.create({
     fontWeight: "300",
     lineHeight: 20,
     textAlign: "justify",
-    padding:10
+    padding:10,
+    width: width - 20
   },
   sharePortfolio: {
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 18,
     marginTop: 20,
+    width: width - 20
   },
   materialSymbolsShare: {
     width: 16,
@@ -90,8 +94,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   imageContainer: {
-    width: '50%',
-    height: 255,
+    width: width/2.2,
+    height: 250,
     backgroundColor: "rgba(6, 6, 6, 0.05)",
     marginBottom: 20,
     alignSelf: "center",

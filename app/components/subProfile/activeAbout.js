@@ -17,7 +17,7 @@ const ProfileSection = ({ title, imageSource, isActive, onPress }) => {
   );
 };
 
-const MyComponent = () => {
+const MyComponent = ({ activeTab, setActiveTab }) => {
   const [activeSection, setActiveSection] = useState("About");
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
@@ -37,6 +37,7 @@ const MyComponent = () => {
 
   const handleSectionPress = (section) => {
     setActiveSection(section);
+    setActiveTab(section); // assuming setActiveTab is a prop to manage active tab globally
   };
 
   if (!isFontLoaded) {
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     display: "flex",
     gap: 1,
-    flexDirection:'row'
+    flexDirection: 'row',
   },
   header: {
     alignItems: "stretch",
@@ -75,8 +76,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   activeContainer: {
-    borderColor:'#000',
-    borderBottomWidth:2
+    borderColor: '#000',
+    borderBottomWidth: 2
   },
   inactiveContainer: {},
   activeTitle: {

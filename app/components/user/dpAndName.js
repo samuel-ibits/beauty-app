@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 const UserProfileCard = ({ username, profilePhotoUrl }) => {
   return (
     <View style={styles.container}>
-      <Image source={{ uri: profilePhotoUrl }} style={styles.profilePhoto} />
+      <Image source={profilePhotoUrl} style={styles.profilePhoto} />
       <Text style={styles.username}>{username}</Text>
     </View>
   );
