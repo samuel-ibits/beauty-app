@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const ChatInput = () => {
   return (
@@ -13,7 +13,7 @@ const ChatInput = () => {
         <TextInput placeholder="Message..." style={styles.input} />
 
         <TouchableOpacity>
-          <Ionicons name="send" size={18} color="#585858" />
+          <FontAwesome name="send" size={18} color="#585858" />
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>

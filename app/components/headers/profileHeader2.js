@@ -10,8 +10,12 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import * as Notifications from "expo-notifications";
+import { useNavigation } from "@react-navigation/native";
+
 const Header = () => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     const loadFont = async () => {
@@ -65,14 +69,17 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-          <TouchableOpacity style={{ position: "absolute", top: 22, left: -18 }}>
+        <TouchableOpacity
+          style={{ position: "absolute", top: 22, left: -18 }}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Ionicons name="arrow-back" size={25} color="#323232" />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={handleNotification}>
-        <Text style={{fontFamily:'Poppins'}}>
-            Contact
-        </Text>
+          <Text style={{ fontFamily: "Poppins" }}>Contact</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>

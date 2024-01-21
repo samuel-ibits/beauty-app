@@ -2,16 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View, FlatList, ImageBackground, Image } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-const MyFlatList = () => {
-  const data = [
-    { key: "1", text: "Item 1", imageSource: require("../../assets/bg-brown.png") },
-    { key: "2", text: "Item 2", imageSource: require("../../assets/bg-brown.png") },
-    { key: "3", text: "Item 3", imageSource: require("../../assets/bg-brown.png") },
-    { key: "4", text: "Item 3", imageSource: require("../../assets/bg-brown.png") },
-    { key: "5", text: "Item 3", imageSource: require("../../assets/bg-brown.png") },
-    { key: "6", text: "Item 3", imageSource: require("../../assets/bg-brown.png") },
-    // Add more items as needed
-  ];
+const MyFlatList = ({data}) => {
+
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
@@ -32,13 +24,12 @@ const MyFlatList = () => {
             />
           </View>
           <View style={styles.textContainer}>
-            <Text style={[styles.sessionText, styles.labelTypo]}>Upcoming session</Text>
+            <Text style={[styles.sessionText, styles.labelTypo]}>{item.title}</Text>
             <Text style={[styles.label, styles.labelTypo]}>
-              Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas
-              tellus dui.
+              {item.body}
             </Text>
           </View>
-          <Text style={[styles.nowText, styles.nowPosition]}>Now</Text>
+          <Text style={[styles.nowText, styles.nowPosition]}>{item.status}</Text>
         </ImageBackground>
       </LinearGradient>
     </View>

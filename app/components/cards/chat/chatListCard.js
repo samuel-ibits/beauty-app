@@ -1,10 +1,11 @@
 import React from "react";
-import { View, Image, Text, Dimensions } from "react-native";
+import { View, Image, Text, Dimensions, TouchableOpacity } from "react-native";
 const { width } = Dimensions.get("window");
 
-const ChatCard = ({ image, name, status }) => {
+const ChatCard = ({ image, name, status, onPress }) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
       style={{
         width: width * 0.9,
         paddingHorizontal: 15,
@@ -14,7 +15,7 @@ const ChatCard = ({ image, name, status }) => {
         alignItems: "center",
         borderColor: "#eee",
         borderWidth: 1,
-        marginVertical:5
+        marginVertical: 5,
       }}
     >
       <Image
@@ -44,7 +45,7 @@ const ChatCard = ({ image, name, status }) => {
           {status}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

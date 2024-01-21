@@ -16,7 +16,7 @@ export default function Homepage() {
       contentContainerStyle={styles.container}
       style={styles.scrollView}
     >
-      <Header />
+    
       <View style={{ width: "95%", gap: 10 }}>
         <Slider />
 
@@ -37,6 +37,7 @@ export default function Homepage() {
         renderItem={({item}) => <Card2 />} 
         keyExtractor={item => item.id}
         horizontal
+        showsHorizontalScrollIndicator={false}
       />
       </View>
     </ScrollView>

@@ -7,7 +7,6 @@ import ChatInput from "../components/inputs/message/messageInput";
 export default function Chatting() {
   return (
     <>
-      <Header />
       <ChatScreen />
       <ChatInput />
     </>

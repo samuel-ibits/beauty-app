@@ -1,12 +1,20 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const UserProfileCard = ({ username, profilePhotoUrl }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => {
+        navigation.navigate("Profile2");
+      }}
+    >
       <Image source={profilePhotoUrl} style={styles.profilePhoto} />
       <Text style={styles.username}>{username}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -18,7 +26,7 @@ const styles = StyleSheet.create({
     paddingRight: 28,
     paddingBottom: 20,
     paddingLeft: 31,
-    backgroundColor:'#FFFFFF33'
+    backgroundColor: "#FFFFFF33",
   },
   profilePhoto: {
     width: 42,

@@ -1,6 +1,7 @@
 import React from "react";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity, Dimensions } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+const { width } = Dimensions.get("window");
 
 const Card = () => {
   const [isHeartSelected, setIsHeartSelected] = React.useState(false);
@@ -8,11 +9,12 @@ const Card = () => {
   return (
     <View
       style={{
-        width: 175,
+        width: width / 2.3,
         height: 247,
         padding: 0,
         borderRadius: 8,
         margin: 12,
+        marginHorizontal: 4,
         backgroundColor: "#FFFFFF",
         shadowColor: "#000000",
         shadowOffset: {
@@ -27,7 +29,7 @@ const Card = () => {
       <Image
         source={require("../../assets/face.png")}
         style={{
-          width: 175,
+          width: width / 2.3,
           height: 180,
           borderTopLeftRadius: 8,
           borderTopRightRadius: 8,
@@ -44,7 +46,6 @@ const Card = () => {
               fontFamily: "Poppins",
               fontSize: 14,
               fontWeight: "500",
-              
             }}
           >
             John
@@ -55,7 +56,6 @@ const Card = () => {
               fontSize: 8,
               fontWeight: "400",
               color: "#0000004D",
-             
             }}
           >
             Makeup Artist
