@@ -15,13 +15,10 @@ export default function Profile2() {
         username={"Kathryn Murphy"}
         profilePhotoUrl={require("./../assets/dp.png")}
       />
-      <ActiveView 
-       activeTab={activeTab}
-       setActiveTab={setActiveTab}
-     />
-      {activeTab === 'About' && <About/>}
+      <ActiveView activeTab={activeTab} setActiveTab={setActiveTab} />
+      {activeTab === "About" && <About />}
 
-{activeTab === 'Portfolio' && <Portfolio/>}
+      {activeTab === "Portfolio" && <Portfolio />}
     </View>
   );
 }

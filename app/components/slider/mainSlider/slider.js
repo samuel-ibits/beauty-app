@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     gap:10,
     marginBottom:40,
+    marginTop:20
   },
   slide: {
     width: width * 0.95,

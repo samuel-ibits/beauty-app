@@ -5,41 +5,38 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  Linking
+  Linking,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
-import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-const Header = () => {
+const Header = ({ route, username, lastSeen, phoneNum }) => {
+  const { userId, userName, userImage , userStatus} = route.params;
+
+  const navigation = useNavigation();
   const [isFontLoaded, setIsFontLoaded] = useState(false);
-
   useEffect(() => {
     const loadFont = async () => {
       await Font.loadAsync({
-        Poppins: require("./../../assets/Poppins/Poppins-Regular.ttf"), // Replace with the actual path to your Poppins font file
-        "Poppins-Bold": require("./../../assets/Poppins/Poppins-Bold.ttf"), // Replace with the actual path to your Poppins-Bold font file
-        // Add other styles or weights if needed
+        Poppins: require("./../../assets/Poppins/Poppins-Regular.ttf"),
+        "Poppins-Bold": require("./../../assets/Poppins/Poppins-Bold.ttf"),
       });
-
       setIsFontLoaded(true);
     };
-
     loadFont();
   }, []);
 
   if (!isFontLoaded) {
-    return null; // Render nothing until the font is loaded
+    return null;
   }
   const handleCall = () => {
-    let phoneNumber = "08146139334";
-
+    let phoneNumber = phoneNum;
     if (Platform.OS === "android") {
       phoneNumber = `tel:${phoneNumber}`;
     } else {
       phoneNumber = `telprompt:${phoneNumber}`;
     }
-
     Linking.canOpenURL(phoneNumber)
       .then((supported) => {
         if (!supported) {
@@ -67,7 +64,12 @@ const Header = () => {
           justifyContent: "space-around",
         }}
       >
-        <TouchableOpacity style={{ position: "absolute", top: 22, left: -18 }}>
+        <TouchableOpacity
+          style={{ position: "absolute", top: 22, left: -18 }}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Ionicons name="arrow-back" size={25} color="#323232" />
         </TouchableOpacity>
         <View
@@ -80,7 +82,7 @@ const Header = () => {
           }}
         >
           <Image
-            source={{ uri: "https://randomuser.me/api/portraits/women/68.jpg" }}
+            source={userImage}
             style={{ width: 42, height: 42, borderRadius: 21, borderWidth: 1 }}
           />
           <View
@@ -99,9 +101,8 @@ const Header = () => {
                 lineHeight: 13,
               }}
             >
-              Leslie Alexander
+              {userName}
             </Text>
-
             <Text
               style={{
                 fontFamily: "Poppins",
@@ -110,11 +111,10 @@ const Header = () => {
                 color: "#00000099",
               }}
             >
-              Active 1 min ago
+              {userStatus}
             </Text>
           </View>
         </View>
-
         <TouchableOpacity onPress={handleCall}>
           <Image
             source={require("../../assets/call-icon.png")}

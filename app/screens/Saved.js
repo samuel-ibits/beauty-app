@@ -1,10 +1,11 @@
-import { View, FlatList } from "react-native";
-import Header from "../components/headers/searchHeader1";
+import { View, Text, FlatList } from "react-native";
+import React from "react";
+import Header from "../components/headers/preferenceHeader";
 import Card1 from "../components/cards/glamCards/card1";
 import Card2 from "../components/cards/glamCards/card2";
 import Card3 from "../components/cards/glamCards/card3";
 
-export default function Explore() {
+export default function Saved() {
   const cards = [
     {
       id: "1",
@@ -32,10 +33,9 @@ export default function Explore() {
     },
     //...
   ];
-
   return (
     <View style={{ gap: 10, alignItems: "center", flex: 1 }}>
-  
+      <Header title={"Saved"} />
       <FlatList
         data={cards}
         renderItem={({ item }) => (
@@ -44,7 +44,7 @@ export default function Explore() {
         keyExtractor={(item) => item.id}
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
-        style={{ marginTop: -40 }}
+        style={{ marginTop: 10 }}
       />
     </View>
   );
