@@ -34,7 +34,7 @@ export default function Explore() {
   ];
 
   return (
-    <View style={{ gap: 10, alignItems: "center", flex: 1 }}>
+    <View style={{ gap: 10, alignItems: "center",backgroundColor:'#fff', flex: 1,marginTop:-20 }}>
   
       <FlatList
         data={cards}
@@ -44,7 +44,7 @@ export default function Explore() {
         keyExtractor={(item) => item.id}
         numColumns={2}
         columnWrapperStyle={{ justifyContent: "space-between" }}
-        style={{ marginTop: -40 }}
+        style={{ marginTop: -20 }}
       />
     </View>
   );

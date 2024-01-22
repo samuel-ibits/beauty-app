@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import Header from "../headers/defaultHeader";
 
 const LanguageList = () => {
   const data = [
@@ -25,6 +26,7 @@ const LanguageList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title={'Language'}/>
       <FlatList
         data={data}
         renderItem={renderItem}

@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import Header from "../components/headers/preferenceHeader";
+import Header from "../components/headers/defaultHeader";
 import Card1 from "../components/cards/glamCards/card1";
 import Card2 from "../components/cards/glamCards/card2";
 import Card3 from "../components/cards/glamCards/card3";

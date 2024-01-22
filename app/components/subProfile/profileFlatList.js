@@ -50,6 +50,7 @@ const MyFlatList = () => {
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <ListItem {...item} />}
+      showsVerticalScrollIndicator={false}
     />
   );
 };

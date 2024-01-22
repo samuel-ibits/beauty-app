@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "rgba(238, 238, 238, 0.5)",
+    backgroundColor: "rgba(238, 238, 238, 0.3)",
     borderColor: "#eee",
     justifyContent: "center",
     alignItems: "center",
-    marginTop:-10,
+    marginTop:-20,
+    borderColor:'#ddd'
   },
   icon: {
     marginRight: 10,

@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import Header from "./../components/headers/preferenceHeader";
+import Header from "../components/headers/defaultHeader";
 import SearchInput from "./../components/inputs/search/search";
 import ChatCard from "./../components/cards/chat/chatListCard";
 
@@ -38,7 +38,8 @@ export default function MessageListComponent({ navigation, chat }) {
     },
   ];
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={{ alignItems: "center" , backgroundColor:'#fff',flex:1}}>
+      <View style={{marginBottom:10, backgroundColor:'red', height:30}}/>
       <SearchInput />
       <FlatList
         data={chats}

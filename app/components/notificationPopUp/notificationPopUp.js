@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  FlatList,
+  Dimensions,
+} from "react-native";
+const { width, height } = Dimensions.get("window");
 import * as Font from "expo-font";
+
 const NotificationPopUp = () => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
+
   useEffect(() => {
     const loadFont = async () => {
       await Font.loadAsync({
-        Poppins: require("./../../assets/Poppins/Poppins-Regular.ttf"), // Replace with the actual path to your Poppins font file
-        "Poppins-Bold": require("./../../assets/Poppins/Poppins-Bold.ttf"), // Replace with the actual path to your Poppins-Bold font file
-        // Add other styles or weights if needed
+        Poppins: require("./../../assets/Poppins/Poppins-Regular.ttf"),
+        "Poppins-SemiBold": require("./../../assets/Poppins/Poppins-SemiBold.ttf"),
       });
 
       setIsFontLoaded(true);
@@ -18,54 +27,105 @@ const NotificationPopUp = () => {
   }, []);
 
   if (!isFontLoaded) {
-    return null; // Render nothing until the font is loaded
+    return null;
   }
+
+  const notifications = [
+    {
+      id: "1",
+      title: "You have a new message",
+      description: "John sent you a message. Check it out!",
+      time: "2 minutes ago",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "2",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "5 minutes ago",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "3",
+      title: "Your daily reminder",
+      description: "Don't forget to water your plants today!",
+      time: "Today, 10:00 AM",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "4",
+      title: "Upcoming event",
+      description: "You have an event tomorrow. Prepare for it!",
+      time: "Tomorrow, 9:00 AM",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "5",
+      title: "Weather update",
+      description: "Expect rain in the afternoon. Bring an umbrella!",
+      time: "Today, 1:30 PM",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "6",
+      title: "New podcast episode",
+      description: "Your favorite podcast has a new episode. Listen now!",
+      time: "1 hour ago",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "7",
+      title: "Product sale alert",
+      description: "Flash sale on your favorite items. Limited time offer!",
+      time: "Yesterday, 8:45 PM",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "8",
+      title: "Fitness reminder",
+      description: "Time for your daily workout. Let's stay fit!",
+      time: "Today, 6:00 PM",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "9",
+      title: "New job opportunity",
+      description: "A job matching your skills is available. Apply now!",
+      time: "2 days ago",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "10",
+      title: "Travel plans",
+      description:
+        "Your flight is tomorrow. Ensure all travel documents are ready.",
+      time: "Tomorrow, 6:30 AM",
+      image: require("../../assets/bell.png"),
+    },
+    // Add more notification items as needed
+  ];
+
   return (
-    <ScrollView style={styles.container}>
-      
-
-      <Text style={styles.title}>Notifications</Text>
-
-      <Notification
-        image={require("../../assets/bell.png")}
-        title="You have been scheduled for tomorrow"
-        description="Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas tellus dui."
-        time="Now"
-      />
-       <Notification
-        image={require("../../assets/bell.png")}
-        title="You have been scheduled for tomorrow"
-        description="Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas tellus dui."
-        time="Now"
-      />
-       <Notification
-        image={require("../../assets/bell.png")}
-        title="You have been scheduled for tomorrow"
-        description="Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas tellus dui."
-        time="Now"
-      />
-
-      <Notification
-        image={require("../../assets/bell.png")}
-        title="You have been scheduled for tomorrow"
-        description="Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas tellus dui."
-        time="2 days ago"
-      />
-      <Notification
-        image={require("../../assets/bell.png")}
-        title="You have been scheduled for tomorrow and another for friday and"
-        description="Lorem ipsum dolor sit amet consectetur. Turpis porta cras neque morbi mi egestas tellus dui."
-        time="2 days ago"
-      />
-      <View style={styles.divider} />
-    </ScrollView>
+    <FlatList
+      data={notifications}
+      keyExtractor={(item) => item.id}
+      renderItem={({ item }) => (
+        <Notification
+          title={item.title}
+          description={item.description}
+          time={item.time}
+          image={item.image}
+        />
+      )}
+      style={styles.container}
+    />
   );
 };
 
 const Notification = ({ title, description, time, image }) => (
   <View style={styles.notification}>
     <View style={styles.image}>
-      <Image source={image} />
+      <Image source={image} style={{ width: 20, height: 20 }} />
     </View>
 
     <View style={{ width: "70%" }}>
@@ -80,40 +140,45 @@ const Notification = ({ title, description, time, image }) => (
 const styles = StyleSheet.create({
   container: {
     borderRadius: 16,
-    paddingVertical: 34,
     paddingHorizontal: 7,
-    backgroundColor: "#fff",
+    backgroundColor: "#eeeeee",
     position: "absolute",
     width: "100%",
-    bottom: 0,
-    height: 520,
-    elevation:3,
-    borderBottomLeftRadius:0,
-    borderBottomRightRadius:0
+    bottom: -135,
+    height: height * 0.5,
+    elevation: 3,
+    borderBottomLeftRadius: 0,
+    borderBottomRightRadius: 0,
   },
   title: {
-    fontWeight: "500",
-    fontSize: 16,
-    fontFamily: "Poppins-Bold",
+    fontWeight: "400",
+    fontSize: 13,
+    fontFamily: "Poppins-SemiBold",
   },
   notification: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    gap:10,
-    width:'100%',
-    paddingHorizontal:10,
-    marginVertical:10
+    gap: 10,
+    width: "95%",
+    marginVertical: 5,
+    backgroundColor: "#fff",
+    padding:25,
+    alignSelf:'center',
+    borderRadius:8
+
   },
   time: {
-    fontSize: 9,
+    fontSize: 8,
     color: "#777",
     fontFamily: "Poppins",
-    width:45,
+    width: 45,
   },
   description: {
     fontFamily: "Poppins",
-    width:'100%',
+    width: "100%",
+    color: "#7D7D7D",
+    fontSize: 11,
   },
   image: {
     backgroundColor: "#07070714",
@@ -123,10 +188,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  divider:{
-    height:30
-  }
-  // other styles
 });
 
 export default NotificationPopUp;

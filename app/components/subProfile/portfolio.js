@@ -44,6 +44,7 @@ const Portfolio = () => {
         keyExtractor={(item) => item.id}
         numColumns={2}
         contentContainerStyle={styles.gallery}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );

@@ -9,9 +9,11 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import * as Font from "expo-font";
-import * as Notifications from "expo-notifications";
-const Header = ({title, Arrow}) => {
+import { useNavigation } from "@react-navigation/native";
+
+const Header = ({ title }) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     const loadFont = async () => {
@@ -31,23 +33,7 @@ const Header = ({title, Arrow}) => {
     return null; // Render nothing until the font is loaded
   }
 
-  const handleNotification = () => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: true,
-        shouldSetBadge: true,
-      }),
-    });
-
-    Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Notification",
-        body: "this is the body of fashion app!",
-      },
-      trigger: null,
-    });
-  };
+ 
   return (
     <ImageBackground
       source={require("../../assets/background1.png")}
@@ -64,11 +50,20 @@ const Header = ({title, Arrow}) => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity style={{}} onPress={Arrow}>
+        <TouchableOpacity
+          style={{}}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Ionicons name="arrow-back" size={25} color="#323232" />
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={handleNotification}>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.goBack();
+          }}
+        >
           <Text style={{ fontFamily: "Poppins" }}>{title}</Text>
         </TouchableOpacity>
       </View>

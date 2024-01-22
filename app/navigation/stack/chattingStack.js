@@ -2,7 +2,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import MessageListComponent from "../../screens/MessageList";
 import ChatScreen from "../../screens/Chatting";
 import ChatHeader from "../../components/headers/chatHeader";
-import MessageHeader from "../../components/headers/preferenceHeader";
+import MessageHeader from "../../components/headers/defaultHeader";
 
 const Stack = createStackNavigator();
 

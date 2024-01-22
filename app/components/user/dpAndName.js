@@ -9,7 +9,7 @@ const UserProfileCard = ({ username, profilePhotoUrl }) => {
     <TouchableOpacity
       style={styles.container}
       onPress={() => {
-        navigation.navigate("Profile2");
+        navigation.navigate("Profile");
       }}
     >
       <Image source={profilePhotoUrl} style={styles.profilePhoto} />

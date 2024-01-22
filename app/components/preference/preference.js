@@ -1,14 +1,38 @@
 import React from "react";
-import { FlatList, View, StyleSheet, Image, Text, SafeAreaView,TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const PreferenceList = () => {
+  const navigation = useNavigation();
+  const onPress = (screen) => {
+    navigation.navigate(screen)  
+  };
+
   const data = [
-    { key: "1", title: "Notification", imageSource: require('../../assets/back-Icon.png') },
-    { key: "2", title: "Language", imageSource: require('../../assets/back-Icon.png') },
+    {
+      key: "1",
+      title: "Notification",
+      imageSource: require("../../assets/back-Icon.png"),
+      onPress: () => onPress("Notification"),
+    },
+    {
+      key: "2",
+      title: "Language",
+      imageSource: require("../../assets/back-Icon.png"),
+      onPress: () => onPress("Language"),
+    },
   ];
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.itemContainer}>
+    <TouchableOpacity style={styles.itemContainer} onPress={item.onPress}>
       <View style={styles.header}>
         <Text style={styles.title}>{item.title}</Text>
         <Image
@@ -40,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "stretch",
     flexDirection: "column",
-    width:'100%'
+    width: "100%",
   },
   flatList: {
     width: "100%",

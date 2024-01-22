@@ -1,33 +1,62 @@
 import React from "react";
-import { FlatList, View, StyleSheet, Image, Text, SafeAreaView,TouchableOpacity } from "react-native";
-
-const PreferenceList = () => {
+import {
+  FlatList,
+  View,
+  StyleSheet,
+  Image,
+  Text,
+  SafeAreaView,
+  TouchableOpacity,
+} from "react-native";
+import Header from "../headers/defaultHeader";
+import { useNavigation } from "@react-navigation/native";
+const Notifcation = () => {
+  const navigation = useNavigation();
+  const onPress = (screen) => {
+    navigation.navigate(screen);
+  };
   const data = [
-    { key: "1", title: "Push notifications", imageSource: require('../../assets/back-Icon.png') },
-    { key: "2", title: "Email notifications", imageSource: require('../../assets/back-Icon.png') },
-    { key: "3", title: "Notifications sound", imageSource: require('../../assets/back-Icon.png') },
+    {
+      key: "1",
+      title: "Push notifications",
+      imageSource: require("../../assets/back-Icon.png"),
+      onPress: () => onPress("PushNotification"),
+    },
+    {
+      key: "2",
+      title: "Email notifications",
+      imageSource: require("../../assets/back-Icon.png"),
+      onPress: () => onPress("EmailNotification"),
+    },
+    {
+      key: "3",
+      title: "Notifications sound",
+      imageSource: require("../../assets/back-Icon.png"),
+      onPress: () => onPress("SoundNotification"),
+    },
   ];
 
-  const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.itemContainer}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{item.title}</Text>
-        <Image
-          resizeMode="contain"
-          source={item.imageSource}
-          style={styles.notificationImage}
-          accessibilityLabel={`${item.title} Image`}
-          accessibilityRole="image"
-        />
-      </View>
-    </TouchableOpacity>
-  );
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title={"Notifcation"} />
       <FlatList
         data={data}
-        renderItem={renderItem}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.itemContainer} onPress={item.onPress}>
+            <View style={styles.header}>
+              <Text style={styles.title}>{item.title}</Text>
+
+              <Image
+                resizeMode="contain"
+                source={item.imageSource}
+                style={styles.notificationImage}
+                accessibilityLabel={`${item.title} Image`}
+                accessibilityRole="image"
+              />
+            </View>
+          </TouchableOpacity>
+        )}
         keyExtractor={(item) => item.key}
         style={styles.flatList}
       />
@@ -41,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "stretch",
     flexDirection: "column",
-    width:'100%'
+    width: "100%",
   },
   flatList: {
     width: "100%",
@@ -74,4 +103,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PreferenceList;
+export default Notifcation;

@@ -13,7 +13,7 @@ const ChatCard = ({ image, name, status, onPress }) => {
         borderRadius: 6,
         flexDirection: "row",
         alignItems: "center",
-        borderColor: "#eee",
+        borderColor: "#ddddddee",
         borderWidth: 1,
         marginVertical: 5,
       }}

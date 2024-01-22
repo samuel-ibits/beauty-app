@@ -6,7 +6,7 @@ import ActiveView from "../components/subProfile/activeAbout";
 import About from "../components/subProfile/about";
 import Portfolio from "../components/subProfile/portfolio";
 
-export default function Profile2() {
+export default function ProfileScreen() {
   const [activeTab, setActiveTab] = useState("About");
   return (
     <View style={{ flex: 1 }}>

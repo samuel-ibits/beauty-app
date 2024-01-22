@@ -1,23 +1,29 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const SubProfile = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Section title="My Glam">
         <Item
           title="Appointments"
           icon={require("./../../assets/appointment.png")}
+          onPress={() => navigation.navigate("Appointment")}
         />
-      </Section>
 
-      <Section title="Saved Lists">
-        <Item title="Lists" icon={require("./../../assets/lists.png")} />
+        <Item
+          title="Saved Lists"
+          icon={require("./../../assets/lists.png")}
+          onPress={() => navigation.navigate("SavedList")}
+        />
       </Section>
 
       <Section title="Settings">
         <Item
           title="Preferences"
           icon={require("./../../assets/preferences.png")}
+          onPress={() => navigation.navigate("Preference")}
         />
 
         <Item title="Account" icon={require("./../../assets/account.png")} />
@@ -37,8 +43,8 @@ const Section = ({ title, children }) => (
   </View>
 );
 
-const Item = ({ title, icon }) => (
-  <TouchableOpacity style={styles.item}>
+const Item = ({ title, icon, onPress }) => (
+  <TouchableOpacity style={styles.item} onPress={onPress}>
     <View
       style={{
         flexDirection: "row",

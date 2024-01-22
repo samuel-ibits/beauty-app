@@ -1,6 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
-import Header from "../components/headers/preferenceHeader";
+import Header from "../components/headers/defaultHeader";
 import AppointmentCard from "../components/appointments/appointmentCard";
 
 export default function Myappointment() {

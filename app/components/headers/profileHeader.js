@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import * as Font from "expo-font";
 import * as Notifications from "expo-notifications";
-const Header = () => {
+const Header = ({onBellPress}) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -64,12 +64,12 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity onPress={handleNotification}>
+        <TouchableOpacity onPress={onBellPress}>
           <Image
             source={require("../../assets/bell-icon.png")}
             style={{
-              width: 16,
-              height: 16,
+              width: 20,
+              height: 20,
               zIndex: 4,
             }}
           />

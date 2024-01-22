@@ -1,8 +1,10 @@
 import React from "react";
 import { View, Image, Text, ImageBackground, SafeAreaView } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import NotificationPopup from './../notificationPopUp/notificationPopUp';
 
-const Header = () => {
+
+const Header = ({User}) => {
   const [hasNotification, setHasNotification] = React.useState(true);
 
   return (
@@ -49,7 +51,7 @@ const Header = () => {
               color: "#323232CC",
             }}
           >
-            John
+            {User}
           </Text>
         </View>
       </View>

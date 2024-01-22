@@ -1,15 +1,18 @@
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
-import React from "react";
+import React,{useState} from "react";
 
 import Header from "../components/headers/header1";
 import Slider from "../components/slider/mainSlider/slider";
 import TextOne from "../components/topography/intertitle1";
 import Card from "../components/cards/card1";
 import Card2 from "../components/cards/card2";
+import NotificationPopUp from "../components/notificationPopUp/notificationPopUp";
 
 export default function Homepage() {
   const data = [{ id: "1" }, { id: "2" }, { id: "3" },{ id: "4" },{ id: "5" }];
   const data2 = [{ id: "1" }, { id: "2" }, { id: "3" },{ id: "4" },{ id: "5" }];
+  const [showNotifications, setShowNotifications] = useState(false);
+
 
   return (
     <ScrollView

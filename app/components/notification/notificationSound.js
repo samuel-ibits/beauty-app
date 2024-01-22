@@ -10,7 +10,7 @@ const PushNotificationToggle = () => {
 
   return (
     <View style={styles.container}>
-      <Header title={'Push Notifications'}/>
+      <Header title={'Notifications sound'}/>
       <View
         style={{
           width: "100%",
@@ -21,7 +21,7 @@ const PushNotificationToggle = () => {
         }}
       >
         <View>
-          <Text style={styles.text}>Push notifications</Text>
+          <Text style={styles.text}>Notifications sound</Text>
         </View>
         <TouchableOpacity
           style={[styles.toggler, isEnabled ? styles.togglerActive : null]}
@@ -33,7 +33,7 @@ const PushNotificationToggle = () => {
         </TouchableOpacity>
       </View>
       <Text style={styles.notificationText}>
-        Allow glam to send push notifications to your device
+      Allow Glam to send notification sounds to your device
       </Text>
     </View>
   );

@@ -43,6 +43,7 @@ const About = () => {
       data={data}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <View>{item.component}</View>}
+      showsVerticalScrollIndicator={false}
     />
     <ButtonComponent text={'Book Aboutointment'}/>
     </View>

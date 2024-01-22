@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet, Text, SafeAreaView, TouchableOpacity } from "react-native";
+import Header from "../headers/defaultHeader";
 
 const EmailList = () => {
   const data = [
@@ -37,6 +38,7 @@ const EmailList = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title={'Email Notifications'}/>
       <FlatList
         data={data}
         renderItem={renderItem}

@@ -11,10 +11,10 @@ import { BlurView } from "expo-blur";
 import HomeScreen from "./../../screens/Homepage";
 import MessageScreen from "./../stack/chattingStack";
 import SearchScreen from "./../../screens/Search";
-import ProfileScreen from "./../stack/profileStack";
+import ProfileScreen from "../stack/settingStack";
 
 import HomeHeader from "./../../components/headers/header1";
-import MessageHeader from "./../../components/headers/preferenceHeader";
+import MessageHeader from "../../components/headers/defaultHeader";
 import SearchHeader from "./../../components/headers/searchHeader1";
 import ProfileHeader from "./../../components/headers/profileHeader";
 
@@ -22,7 +22,7 @@ const Tab = createBottomTabNavigator();
 
 const Home = () => (
   <>
-    <HomeHeader />
+    <HomeHeader User={'Jane titilola sule'}/>
     <HomeScreen />
   </>
 );
@@ -63,7 +63,7 @@ const getTabBarIcon = (route, focused, color) => {
       // EvilIcons
       iconName = "search";
       return <EvilIcons name={iconName} size={18} color={color} />;
-    case "Profile":
+    case "ProfilePage":
       // FontAwesome
       iconName = focused ? "user-circle" : "user-circle-o";
       return <FontAwesome name={iconName} size={18} color={color} />;
@@ -100,7 +100,7 @@ export default function App() {
           component={Search}
         />
         <Tab.Screen
-          name="Profile"
+          name="ProfilePage"
           options={{ headerShown: false }}
           component={Profile}
         />
