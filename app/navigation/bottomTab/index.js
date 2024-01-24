@@ -8,7 +8,7 @@ import {
   EvilIcons,
 } from "react-native-vector-icons";
 import { BlurView } from "expo-blur";
-import HomeScreen from "./../../screens/Homepage";
+import HomeScreen from "./../../navigation/stack/homepagestack";
 import MessageScreen from "./../stack/chattingStack";
 import SearchScreen from "./../../screens/Search";
 import ProfileScreen from "../stack/settingStack";
@@ -22,7 +22,6 @@ const Tab = createBottomTabNavigator();
 
 const Home = () => (
   <>
-    <HomeHeader User={'Jane titilola sule'}/>
     <HomeScreen />
   </>
 );

@@ -1,69 +1,82 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import CustomButton from '../buttons/buttonTwo';
+import React,{useState} from "react";
+import { View, Text, StyleSheet, TouchableOpacity,Dimensions } from "react-native";
+import CustomButton from "../buttons/buttonTwo";
+import Popup2 from '../popups/popuppay2'
+const { width , height} = Dimensions.get("window");
 
 function AppointmentScheduler() {
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const handleSetAppointment = () => {
+    // Show Popup2
+    setPopupVisible(true);
+  };
   return (
     <View style={styles.container}>
       <View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Book Appointment</Text>
-        <Text style={styles.sectionSubtitle}>Select Date</Text>
-        <View style={styles.datePicker}>
-          {["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"].map((day, index) => (
-            <TouchableOpacity key={index} style={styles.dayContainer}>
-              <Text style={styles.dayText}>{day}</Text>
-              <Text style={styles.dateText}>13</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Available Time</Text>
-        <View style={styles.timePicker}>
-          <Text style={styles.timeText}>Morning</Text>
-          <View style={{ width: "100%", flexDirection: "row" }}>
-            {[8, 9, 10, 11].map((hour, index) => (
-              <TouchableOpacity key={index} style={styles.timeSlot}>
-                <Text style={styles.timeSlotText}>{`${hour}:30`}</Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          <Text style={styles.timeText}>Afternoon</Text>
-          <View style={{ width: "100%", flexDirection: "row" }}>
-            {[12, 13, 14, 15].map((hour, index) => (
-              <TouchableOpacity key={index} style={styles.timeSlot}>
-                <Text style={styles.timeSlotText}>{`${hour}:30`}</Text>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Book Appointment</Text>
+          <Text style={styles.sectionSubtitle}>Select Date</Text>
+          <View style={styles.datePicker}>
+            {["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"].map((day, index) => (
+              <TouchableOpacity key={index} style={styles.dayContainer}>
+                <Text style={styles.dayText}>{day}</Text>
+                <Text style={styles.dateText}>13</Text>
               </TouchableOpacity>
             ))}
           </View>
         </View>
-      </View>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Available Time</Text>
+          <View style={styles.timePicker}>
+            <Text style={styles.timeText}>Morning</Text>
+            <View style={{ width: "100%", flexDirection: "row" }}>
+              {[8, 9, 10, 11].map((hour, index) => (
+                <TouchableOpacity key={index} style={styles.timeSlot}>
+                  <Text style={styles.timeSlotText}>{`${hour}:30`}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+
+            <Text style={styles.timeText}>Afternoon</Text>
+            <View style={{ width: "100%", flexDirection: "row" }}>
+              {[12, 13, 14, 15].map((hour, index) => (
+                <TouchableOpacity key={index} style={styles.timeSlot}>
+                  <Text style={styles.timeSlotText}>{`${hour}:30`}</Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+        </View>
       </View>
 
-      <CustomButton text={'Set appointment'}/>
+     <View style={{width:'100%', justifyContent:'center',alignItems:'center'}}>
+     <CustomButton
+        text={"Set appointment"}
+        onPress={handleSetAppointment}
+      />
+     </View>
+
+{isPopupVisible && <Popup2 onClose={() => setPopupVisible(false)} />}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
-    width: "100%",
+    backgroundColor: "#fff",
+    width: width,
     flexDirection: "column",
     alignItems: "start",
     padding: 10,
-    borderWidth:1,
-    position:'absolute',
-    bottom:0,
+    position: "absolute",
+    bottom: 0,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    height:'90%',
-    justifyContent:'space-between',    
-    borderColor:'#eee',
+    height: "90%",
+    justifyContent: "space-between",
   },
   section: {
     marginTop: 26,
@@ -107,7 +120,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     marginTop: 18,
-    gap:15
+    gap: 15,
   },
   timeText: {
     color: "rgba(50, 50, 50, 0.30)",
@@ -121,9 +134,9 @@ const styles = StyleSheet.create({
     borderColor: "rgba(7, 7, 7, 0.60)",
     padding: 6,
     alignItems: "center",
-    justifyContent:'center',
-    marginHorizontal:5,
-    paddingHorizontal:18
+    justifyContent: "center",
+    marginHorizontal: 5,
+    paddingHorizontal: 18,
   },
   timeSlotText: {
     color: "rgba(7, 7, 7, 0.80)",

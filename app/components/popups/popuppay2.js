@@ -1,8 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { RadioButton } from "react-native-paper";
 import CustomButton from "../buttons/buttonTwo";
 import InputOne from "../inputs/sectionInputDebit/index";
+const { width , height} = Dimensions.get("window");
+
 
 function AppointmentScheduler() {
   const [checked, setChecked] = React.useState("none"); // Track the active radio button
@@ -67,21 +69,20 @@ function AppointmentScheduler() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
-    width: "100%",
+    backgroundColor: "#fff",
+    width: width,
     flexDirection: "column",
     alignItems: "start",
     padding: 15,
-    borderWidth: 1,
     position: "absolute",
     bottom: 0,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
-    height: "90%",
+    height: height * 0.78,
     justifyContent: "space-between",
-    borderColor:'#eee',
+
   },
   
   sectionTitle: {

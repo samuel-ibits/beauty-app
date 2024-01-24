@@ -7,10 +7,11 @@ import {
   FlatList,
   Dimensions,
 } from "react-native";
+import Header from "../headers/defaultHeader";
 const { width, height } = Dimensions.get("window");
 import * as Font from "expo-font";
 
-const NotificationPopUp = () => {
+const NotificationPopUp = ({ navigation }) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -47,65 +48,72 @@ const NotificationPopUp = () => {
     },
     {
       id: "3",
-      title: "Your daily reminder",
-      description: "Don't forget to water your plants today!",
-      time: "Today, 10:00 AM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "5 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "4",
-      title: "Upcoming event",
-      description: "You have an event tomorrow. Prepare for it!",
-      time: "Tomorrow, 9:00 AM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "5 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "5",
-      title: "Weather update",
-      description: "Expect rain in the afternoon. Bring an umbrella!",
-      time: "Today, 1:30 PM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "6",
-      title: "New podcast episode",
-      description: "Your favorite podcast has a new episode. Listen now!",
-      time: "1 hour ago",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "7",
-      title: "Product sale alert",
-      description: "Flash sale on your favorite items. Limited time offer!",
-      time: "Yesterday, 8:45 PM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "8",
-      title: "Fitness reminder",
-      description: "Time for your daily workout. Let's stay fit!",
-      time: "Today, 6:00 PM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "9",
-      title: "New job opportunity",
-      description: "A job matching your skills is available. Apply now!",
-      time: "2 days ago",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     {
       id: "10",
-      title: "Travel plans",
-      description:
-        "Your flight is tomorrow. Ensure all travel documents are ready.",
-      time: "Tomorrow, 6:30 AM",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
+      image: require("../../assets/bell.png"),
+    },
+    {
+      id: "11",
+      title: "New friend request",
+      description: "Jane wants to connect with you. Accept or ignore?",
+      time: "15 minutes ago",
       image: require("../../assets/bell.png"),
     },
     // Add more notification items as needed
   ];
-
   return (
+    <>
+    <Header/>
     <FlatList
       data={notifications}
       keyExtractor={(item) => item.id}
@@ -119,6 +127,7 @@ const NotificationPopUp = () => {
       )}
       style={styles.container}
     />
+    </>
   );
 };
 
@@ -139,16 +148,10 @@ const Notification = ({ title, description, time, image }) => (
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 16,
     paddingHorizontal: 7,
     backgroundColor: "#eeeeee",
-    position: "absolute",
     width: "100%",
-    bottom: -135,
-    height: height * 0.5,
-    elevation: 3,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
+    height: '100%',
   },
   title: {
     fontWeight: "400",

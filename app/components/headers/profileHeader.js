@@ -8,8 +8,7 @@ import {
   Alert,
 } from "react-native";
 import * as Font from "expo-font";
-import * as Notifications from "expo-notifications";
-const Header = ({onBellPress}) => {
+const Header = ({onPress}) => {
   const [isFontLoaded, setIsFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -30,23 +29,6 @@ const Header = ({onBellPress}) => {
     return null; // Render nothing until the font is loaded
   }
 
-  const handleNotification = () => {
-    Notifications.setNotificationHandler({
-      handleNotification: async () => ({
-        shouldShowAlert: true,
-        shouldPlaySound: true,
-        shouldSetBadge: true,
-      }),
-    });
-
-    Notifications.scheduleNotificationAsync({
-      content: {
-        title: "Notification",
-        body: "this is the body of fashion app!",
-      },
-      trigger: null,
-    });
-  };
   return (
     <ImageBackground
       source={require("../../assets/background1.png")}
@@ -64,7 +46,7 @@ const Header = ({onBellPress}) => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity onPress={onBellPress}>
+        <TouchableOpacity onPress={onPress} style={{padding:10}}>
           <Image
             source={require("../../assets/bell-icon.png")}
             style={{

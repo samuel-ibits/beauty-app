@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import NotificationPopup from './../notificationPopUp/notificationPopUp';
 
 
-const Header = ({User}) => {
+const Header = ({User, onPress}) => {
   const [hasNotification, setHasNotification] = React.useState(true);
 
   return (
@@ -51,30 +51,18 @@ const Header = ({User}) => {
               color: "#323232CC",
             }}
           >
-            {User}
+           Hi,{User}
           </Text>
         </View>
       </View>
 
-      {hasNotification && (
-        <View
-          style={{
-            position: "absolute",
-            top: 35,
-            right: 23,
-            width: 4,
-            height: 4,
-            borderRadius: 2,
-            backgroundColor: "#BA8277",
-            zIndex: 3,
-          }}
-        />
-      )}
+    
       <Ionicons
         name="ios-notifications-outline"
         size={25}
         color="#323232CC"
-        style={{ marginLeft: "auto", marginTop: -35 }}
+        style={{ marginLeft: "auto", marginTop: -35,borderRadius:25/2,padding:10 }}
+        onPress={onPress}
       />
     </SafeAreaView>
   );

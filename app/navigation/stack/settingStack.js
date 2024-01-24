@@ -7,8 +7,9 @@ import Preference from "../../screens/Preference";
 import Notification from "../../components/notification/notification";
 import Language from "../../components/language/language";
 import PushNotification from "../../components/notification/pushNotification";
-import EmailNotification from '../../components/notification/emailNotification'
-import SoundNotification from '../../components/notification/notificationSound'
+import EmailNotification from "../../components/notification/emailNotification";
+import SoundNotification from "../../components/notification/notificationSound";
+import NotificationPopup from "../../components/notificationPopUp/notificationPopUp";
 
 const Stack = createStackNavigator();
 
@@ -20,6 +21,7 @@ function ChattingStack() {
         component={Setting}
         options={{ headerShown: false }}
       />
+
       <Stack.Screen
         name="Profile"
         component={Profile}
@@ -62,11 +64,17 @@ function ChattingStack() {
         component={EmailNotification}
         options={{ headerShown: false }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="SoundNotification"
         component={SoundNotification}
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="NotificationPopup"
+        component={NotificationPopup}
+        options={{ headerShown: false }}
+      />
+      
     </Stack.Navigator>
   );
 }

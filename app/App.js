@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { View, StyleSheet, StatusBar, Animated } from "react-native";
 import * as Font from "expo-font";
 import Screen from "./screens/Homepage";
+
+import Popup from "./components/notificationPopUp/notificationPopUp";
 import BottomNav from "./navigation/bottomTab/index";
 
 const App = () => {
@@ -26,10 +28,12 @@ const App = () => {
   }
 
   return (
+  
     <View style={styles.container}>
       <StatusBar />
       <BottomNav />
     </View>
+    
   );
 };
 
